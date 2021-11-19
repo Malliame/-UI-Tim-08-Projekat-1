@@ -1,6 +1,7 @@
 package Procedure;
 
 import java.sql.*;
+import java.util.Scanner;
 
 public class Procedura9 {
 
@@ -14,17 +15,30 @@ public class Procedura9 {
 
             myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/adventureworks", "student", "student");
 
-            myCall = myConn.prepareCall("{call Procedura9(?)}");
-            myCall.setString(1, "HL Mountain Tire");
-            myCall.execute();
+            while(true) {
+                myCall = myConn.prepareCall("{call Procedura9(?)}");
 
-            myRS = myCall.getResultSet();
+                System.out.println("Unesite naziv modela proizvoda:");
 
-            while(myRS.next()){
-                // FirstName, LastName, CountryRegionCode
-                System.out.println(myRS.getString("FirstName") + " " + myRS.getString("LastName") + " from " + myRS.getString("CountryRegionCode"));
+                Scanner sc = new Scanner(System.in);
+
+                String productName = sc.nextLine();
+
+                if(productName.equals("exit")) break;
+
+                //HL Mountain Tire
+                myCall.setString(1, productName);
+                myCall.execute();
+
+                myRS = myCall.getResultSet();
+
+                while (myRS.next()) {
+                    // FirstName, LastName, CountryRegionCode
+                    System.out.println(myRS.getString("FirstName") + " " + myRS.getString("LastName") + " from " + myRS.getString("CountryRegionCode"));
+                }
+
+
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
