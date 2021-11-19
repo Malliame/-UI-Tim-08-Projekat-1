@@ -18,7 +18,7 @@ public class Procedura11 {
 
                 myCall = myConn.prepareCall("{call Procedura11(?)}");
 
-                System.out.println("Uneti jezik:");
+                System.out.println("Enter language or 'exit' to quit:");
 
                 Scanner input = new Scanner(System.in);
 
@@ -32,7 +32,7 @@ public class Procedura11 {
                 myRS = myCall.getResultSet();
 
                 if (!myRS.next()) {
-                    System.out.println("Ne postoji Uputstvo na ovom jeziku!");
+                    System.out.println("There is no istructions on this language.");
                 }
 
                 while (myRS.next()) {
