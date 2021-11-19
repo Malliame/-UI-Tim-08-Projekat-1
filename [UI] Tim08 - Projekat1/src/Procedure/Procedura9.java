@@ -18,7 +18,7 @@ public class Procedura9 {
             while(true) {
                 myCall = myConn.prepareCall("{call Procedura9(?)}");
 
-                System.out.println("Unesite naziv modela proizvoda:");
+                System.out.println("Enter model name or 'exit' to quit:");
 
                 Scanner sc = new Scanner(System.in);
 

@@ -19,7 +19,7 @@ public class Procedura4 {
             while(true) {
                 myCall = myConn.prepareCall("{call Procedura4(?)}");
 
-                System.out.println("Enter store name or exit to quit: ");
+                System.out.println("Enter store name or 'exit' to quit: ");
                 input = sc.nextLine();
 
                 if(input.equals("exit"))

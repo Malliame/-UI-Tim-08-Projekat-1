@@ -12,7 +12,7 @@ public class Procedura11 {
 
         try {
 
-            myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/adventureworks", "student", "student");
+            myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project01", "student", "student");
 
             while(true) {
 
@@ -31,10 +31,6 @@ public class Procedura11 {
 
                 myRS = myCall.getResultSet();
 
-                if (!myRS.next()) {
-                    System.out.println("There is no istructions on this language.");
-                }
-
                 while (myRS.next()) {
                     /// Name, NumberOfOrders, AverageNumberOfArticles, TotalSales
                     System.out.println(myRS.getString("ProductID") + " "
@@ -43,7 +39,10 @@ public class Procedura11 {
                 }
             }
 
-        } catch (Exception e) {
+        }catch(NullPointerException e1){
+            System.out.println("No product description on entered language!");
+        }
+        catch (Exception e) {
             e.printStackTrace();
         } finally {
 
