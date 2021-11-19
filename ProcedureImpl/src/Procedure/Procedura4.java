@@ -11,7 +11,7 @@ public class Procedura4 {
 
         try {
 
-            myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project01", "student", "student");
+            myConn = DriverManager.getConnection("jdbc:mysql://localhost:3306/adventureworks", "student", "student");
 
             myCall = myConn.prepareCall("{call Procedura4(?)}");
 
